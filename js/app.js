@@ -4,11 +4,11 @@ let   score 		= 0;
 const startButton   = document.querySelectorAll('.btn__reset')[0];
 const buttons 		= document.querySelectorAll('.keyrow button');
 let   phrases 	 = [
-'this is a phrase',
-'another phrase here',
-"oh my god another phrase",
-"so many phrases",
-"the fifth phrase"
+'This is a phrase',
+'Another phrase here',
+"Oh my god another phrase",
+"So many phrases",
+"The fifth phrase"
 ];
 
 
@@ -47,21 +47,27 @@ function addPhraseToDisplay (arr) {
 function checkLetter (buttonLetter) {
 	let li = document.querySelectorAll(".letter");
 	for (listItem of li) {
-		if (buttonLetter.innerHTML === listItem.innerHTML) {
-		listItem.className = "show";
-		console.log('hello');
-	}
-	}
-	
-	
+		if (buttonLetter.innerHTML === listItem.innerHTML.toLowerCase()) {
+			listItem.className = "show";
+
+		}
+	}	
 }
 
 for(const button of buttons ) {
 	button.addEventListener("click", (e) => {
-
+		button.className = "chosen";
+		let li = document.querySelectorAll(".letter");
 		checkLetter(button);
-	});
+		for(listItem of li) {			  
+			if(e.target.innerHTML !== listItem.innerHTML) {
+				// No idea whats going on 
+				console.log('you guessed wrong try again');
+			}
 
+		}
+
+	});
 };
 
 
