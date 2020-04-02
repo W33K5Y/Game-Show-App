@@ -1,8 +1,9 @@
 const qwerty 		= document.getElementById("qwerty");
 const phrase	    = document.getElementById('phrase');
-let   score 		= 0;
+let   missed 		= 0;
 const startButton   = document.querySelectorAll('.btn__reset')[0];
 const buttons 		= document.querySelectorAll('.keyrow button');
+let   hearts        = document.querySelectorAll(".tries");
 let   phrases 	 = [
 'This is a phrase',
 'Another phrase here',
@@ -44,14 +45,42 @@ function addPhraseToDisplay (arr) {
 
 }
 
-function checkLetter (buttonLetter) {
-	let li = document.querySelectorAll(".letter");
-	for (listItem of li) {
-		if (buttonLetter.innerHTML === listItem.innerHTML.toLowerCase()) {
-			listItem.className = "show";
 
-		}
-	}	
+function checkLetter (buttonLetter) {
+  let guessValid = false;
+  let li = document.querySelectorAll(".letter");
+  for (const listItem of li) {
+    if (buttonLetter.innerHTML.toLowerCase() === listItem.innerHTML.toLowerCase()) {
+      listItem.className = "letter show";
+      guessValid = true;
+    }
+  } 
+  	 if(guessValid === false) {
+      let heartLives = document.querySelectorAll('img');
+     	  heartLives[missed].setAttribute("src", "images/lostHeart.png");
+       	  missed = missed + 1;
+
+  } 
+checkWin(missed);
+ 
+}
+
+function checkWin (score) {
+	const letterShowing  = document.querySelectorAll(".show");
+	const numOfLetter    = document.querySelectorAll(".letter");
+	const overlay        = document.getElementById("overlay");
+	const heading 		 = document.querySelector(".title");
+	if(letterShowing.length === numOfLetter.length) {
+		overlay.setAttribute("class", "start win");
+		overlay.style.display = "flex";
+		heading.innerHTML = "CongratuWelldone";
+		console.log('well done');
+	} else if (score === 5){
+		console.log('Sorry better luck next time');
+		overlay.setAttribute("class", "start lose");
+		overlay.style.display = "flex";
+		heading.innerHTML = "Better luck next time";
+	}
 }
 
 for(const button of buttons ) {
@@ -59,15 +88,9 @@ for(const button of buttons ) {
 		button.className = "chosen";
 		let li = document.querySelectorAll(".letter");
 		checkLetter(button);
-		for(listItem of li) {			  
-			if(e.target.innerHTML !== listItem.innerHTML) {
-				// No idea whats going on 
-				console.log('you guessed wrong try again');
-			}
-
-		}
-
 	});
+
+
 };
 
 
