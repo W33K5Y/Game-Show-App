@@ -83,7 +83,6 @@ function checkWin (score) {
 		overlay.style.display = "flex";
 		heading.innerHTML = "CongratuWelldone";
 		restartButton();
-		console.log('well done');
 	} else if (score === 5){
 		console.log('Sorry better luck next time');
 		overlay.setAttribute("class", "start lose");
@@ -104,9 +103,12 @@ for(const button of buttons ) {
 
 function restartButton() {
 	startButton.innerHTML   = "Restart Game";
-	startButton.textContent = "Restart Game";
-	startButton.addEventListener("click", () => {
-	location.reload()});
+    startButton.classList.add("restart");
+	let restart = document.querySelectorAll(".restart");
+		for (const button of restart){
+		button.addEventListener("click", () => {
+		location.reload()});
+		}
 }
 
 addPhraseToDisplay(phraseArray);
