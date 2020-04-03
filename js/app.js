@@ -54,22 +54,22 @@ function addPhraseToDisplay (arr) {
 
 
 function checkLetter (buttonLetter) {
-  let guessValid = false;
-  let li = document.querySelectorAll(".letter");
-  for (const listItem of li) {
-    if (buttonLetter.innerHTML.toLowerCase() === listItem.innerHTML.toLowerCase()) {
-      listItem.className = "letter show";
-      guessValid = true;
-    }
-  } 
-  	 if(guessValid === false) {
-      let heartLives = document.querySelectorAll('img');
-     	  heartLives[missed].setAttribute("src", "images/lostHeart.png");
-       	  missed = missed + 1;
+	let guessValid = false;
+	let li = document.querySelectorAll(".letter");
+	for (const listItem of li) {
+		if (buttonLetter.innerHTML.toLowerCase() === listItem.innerHTML.toLowerCase()) {
+			listItem.className = "letter show";
+			guessValid = true;
+		}
+	} 
+	if(guessValid === false) {
+		let heartLives = document.querySelectorAll('img');
+		heartLives[missed].setAttribute("src", "images/lostHeart.png");
+		missed = missed + 1;
 
-  } 
-checkWin(missed);
- 
+	} 
+	checkWin(missed);
+
 }
 
 function checkWin (score) {
@@ -82,22 +82,16 @@ function checkWin (score) {
 		overlay.setAttribute("class", "start win");
 		overlay.style.display = "flex";
 		heading.innerHTML = "CongratuWelldone";
-		startButton.innerHTML = "Restart Game";
-		startButton.textContent = "Restart Game";
-		startButton.addEventListener("click", () => {
-			location.reload()});
+		restartButton();
 		console.log('well done');
 	} else if (score === 5){
 		console.log('Sorry better luck next time');
 		overlay.setAttribute("class", "start lose");
 		overlay.style.display = "flex";
 		heading.innerHTML = "Better luck next time";
-		startButton.innerHTML = "Restart Game";
-		startButton.textContent = "Restart Game";
-		startButton.addEventListener("click", () => {
-			location.reload()});
+		restartButton();
 	}
-		
+
 }
 
 for(const button of buttons ) {
@@ -106,11 +100,14 @@ for(const button of buttons ) {
 		let li = document.querySelectorAll(".letter");
 		checkLetter(button);
 	});
-
-
 };
 
-
+function restartButton() {
+	startButton.innerHTML   = "Restart Game";
+	startButton.textContent = "Restart Game";
+	startButton.addEventListener("click", () => {
+	location.reload()});
+}
 
 addPhraseToDisplay(phraseArray);
 
