@@ -5,11 +5,18 @@ const startButton   = document.querySelectorAll('.btn__reset')[0];
 const buttons 		= document.querySelectorAll('.keyrow button');
 let   hearts        = document.querySelectorAll(".tries");
 let   phrases 	 = [
-'This is a phrase',
-'Another phrase here',
-"Oh my god another phrase",
-"So many phrases",
-"The fifth phrase"
+'Back in Black',
+'Heard It Through The Grapevine',
+"Highway To Hell",
+"Run Through The Jungle",
+"Jailbrake",
+"Up Around The Bend",
+"If You Want Blood",
+"Proud Mary",
+"Hell Ain't a Bad Place To Be",
+"My Baby Left Me",
+"Thunderstruck",
+"Born On The Bayou"
 ];
 
 
@@ -70,17 +77,27 @@ function checkWin (score) {
 	const numOfLetter    = document.querySelectorAll(".letter");
 	const overlay        = document.getElementById("overlay");
 	const heading 		 = document.querySelector(".title");
+	// const buttonRefresh  = document.querySelectorAll(".restart");
 	if(letterShowing.length === numOfLetter.length) {
 		overlay.setAttribute("class", "start win");
 		overlay.style.display = "flex";
 		heading.innerHTML = "CongratuWelldone";
+		startButton.innerHTML = "Restart Game";
+		startButton.textContent = "Restart Game";
+		startButton.addEventListener("click", () => {
+			location.reload()});
 		console.log('well done');
 	} else if (score === 5){
 		console.log('Sorry better luck next time');
 		overlay.setAttribute("class", "start lose");
 		overlay.style.display = "flex";
 		heading.innerHTML = "Better luck next time";
+		startButton.innerHTML = "Restart Game";
+		startButton.textContent = "Restart Game";
+		startButton.addEventListener("click", () => {
+			location.reload()});
 	}
+		
 }
 
 for(const button of buttons ) {
