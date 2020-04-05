@@ -8,14 +8,11 @@ let   hearts        = document.querySelectorAll(".tries");
 function startGame () {
 		let   phrases 	 = [
 		'Back in Black',
-		'Heard It Through The Grapevine',
 		"Highway To Hell",
-		"Run Through The Jungle",
 		"Jailbrake",
 		"Up Around The Bend",
 		"If You Want Blood",
 		"Proud Mary",
-		"Hell Aint a Bad Place To Be",
 		"My Baby Left Me",
 		"Thunderstruck",
 		"Born On The Bayou"
@@ -34,7 +31,7 @@ function startGame () {
 			return newSplit;
 		}
 
-		const phraseArray = getRandomPhrasesAsArray(phrases);
+		let phraseArray = getRandomPhrasesAsArray(phrases);
 
 		function addPhraseToDisplay (arr) {
 
@@ -44,6 +41,7 @@ function startGame () {
 				if (letter === ' ') {
 					li.className = ('blank');
 					li.style.padding  = "10px";
+					li.style.display = 'flex';
 				} else {
 					li.className = ('letter');
 					li.style.marginTop  = "10px";
@@ -111,10 +109,10 @@ function restartButton() {
 	let restart = document.querySelectorAll(".restart");
 	for (const button of restart){
 		button.addEventListener("click", () => {
-			gameOver();
 			// location.reload();
 			
-
+			gameOver();
+		
 		});
 	}
 }
@@ -128,9 +126,17 @@ function gameOver() {
 	for(let i = 0; i< heartLives.length; i++){
 	heartLives[i].setAttribute("src", "images/liveHeart.png");		
 	}
-	const ul = phrase.firstElementChild;
-	phrase.removeChild(ul);
+	const ul = document.querySelectorAll(".phrasesList");
+	const deleteUl = ul.firstElementChild;
+	for (const oldLi of deleteUl) {
+	phrase.removeChild(oldLi);
+	}
+
 	startGame();
+		const newUl = document.createElement("ul");
+			phrase.appendChild(newUl);
+			phraseArray = getRandomPhraseAsArray(phrases);
+  			addPhraseToDisplay(phraseArray);
 
 }
 
