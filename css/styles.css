@@ -29,6 +29,7 @@ body {
   height: 100vh;
 }
 
+
 li, ol, ul {
   padding: 0;
   display: inline-block;
@@ -54,7 +55,18 @@ button {
   -o-transition: var(--transition);
   transition: var(--transition);
 }
+button:hover {
+  background-color: #4d85be;
+}
 
+.btn__reset:hover {
+background-color:rgba(112,160,117,.8);
+color: whitesmoke;
+}
+.restart:hover {
+background-color:#4d85be;
+color: whitesmoke;
+}
 .main-container {
   display: flex;
   flex-direction: column;
@@ -140,11 +152,11 @@ button {
 }
 
 .start {
-  background-color: var(--color-start);
+  background-color: #191e29;
 }
 
 .start a {
-  color: var(--color-win);
+  color: #70A075;
 }
 
 .win {
