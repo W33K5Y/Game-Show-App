@@ -27,7 +27,12 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
- background: linear-gradient(to bottom,#141e30 20%, #243b55 ,rgb(27, 29, 31));
+  background: linear-gradient(
+  to bottom,
+     #141e30 20%,
+     #243b55 ,
+     rgb(27, 29, 31)
+  );
 
 }
 
