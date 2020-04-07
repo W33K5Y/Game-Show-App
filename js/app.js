@@ -79,7 +79,7 @@ function checkWin (score) {
 			if(letterShowing.length === numOfLetter.length) {
 				overlay.setAttribute("class", "start win");
 				overlay.style.display = "flex";
-				heading.innerHTML = "CongratuWelldone";
+				heading.innerHTML = "You Win!";
 				restartButton();
 			} else if (score === 5){
 				console.log('Sorry better luck next time');

@@ -4,13 +4,13 @@
 /* Variables */
 
 :root {
-  --color-win: #78CF82;
-  --color-lose: #D94545;
-  --color-start: #5b85b7;
-  --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
-  --color-keys: #37474F;
-  --color-keys-light: #E5E5E5;
+  --color-win: rgba(120,207,130,1);
+  --color-lose: firebrick;
+  --color-start: rgba(91,133,183,1);
+  --color-neutral: rgba(68,80,105,1);
+  --color-neutral-light: rgba(210,210,210,1);
+  --color-keys: rgba(55,71,79,1);
+  --color-keys-light: rgba(229,229,229,1);
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
@@ -27,6 +27,8 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
+ background: linear-gradient(to bottom,#141e30 20%, #243b55 ,rgb(27, 29, 31));
+
 }
 
 
@@ -38,7 +40,8 @@ li, ol, ul {
 h2 {
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: .08em;
   font-size: var(--font-size-large);
   margin: 0;
 }
@@ -56,16 +59,16 @@ button {
   transition: var(--transition);
 }
 button:hover {
-  background-color: #4d85be;
+  background-color: rgba(77,133,190,1);
 }
 
 .btn__reset:hover {
-background-color:rgba(112,160,117,.8);
-color: whitesmoke;
+  background-color:rgba(112,160,117,.8);
+  color: whitesmoke;
 }
 .restart:hover {
-background-color:#4d85be;
-color: whitesmoke;
+  background-color:rgba(77,133,190,1);
+  color: whitesmoke;
 }
 .main-container {
   display: flex;
@@ -84,7 +87,7 @@ color: whitesmoke;
 /* Title */
 
 .header {
-  color: var(--color-start);
+  color: rgba(210,210,210,1);
 }
 
 /* Phrase */
@@ -106,8 +109,8 @@ color: whitesmoke;
 }
 
 .show {
-  color: #000;
-  background-color: #76CE82;
+  color: rgba(0,0,0,1);
+  background-color: rgba(118,206,130,1);
 }
 
 /* Keyboard */
@@ -121,13 +124,13 @@ color: whitesmoke;
   background: var(--color-neutral);
   border-radius: 5px;
   font-size: var(--font-size-medium);
-  color: #FFFFFF;
+  color: rgba(255,255,255,1);
 }
 
 .btn__reset {
   padding: 8px;
   margin: 50px auto;
-  background: #FFFFFF;
+  background: rgba(255,255,255,1);
   border-radius: 5px;
   font-size: var(--font-size-medium);
 }
@@ -138,7 +141,7 @@ color: whitesmoke;
   display: flex;
   flex-direction: column;
   position: fixed;
-  color: #FFFFFF;
+  color: rgba(255,255,255,1);
   justify-content: center;
   top: 0;
   bottom: 0;
@@ -148,15 +151,15 @@ color: whitesmoke;
 }
 
 .title {
-  color: #FFF;
+  color: rgba(255,255,255,1);
 }
 
 .start {
-  background-color: #191e29;
+  background-color: rgba(25,30,41,1);
 }
 
 .start a {
-  color: #70A075;
+  color: rgba(112,160,117,1);
 }
 
 .win {
